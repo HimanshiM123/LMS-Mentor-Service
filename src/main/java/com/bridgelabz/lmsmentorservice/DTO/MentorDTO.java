@@ -18,11 +18,11 @@ public class MentorDTO {
     private String firstName;
     @Pattern(regexp = "^[A-Z]{1}[a-zA-Z\\s]{2,}$",message = "Invalid LastName...!")
     private String lastName;
-    @NotNull(message = "Mentor type Should not be null")
+//    @NotNull(message = "Mentor type Should not be null")
     private String mentorType;
-    @NotNull(message = "Mentor role should not be null")
+//    @NotNull(message = "Mentor role should not be null")
     private String mentorRole;
-    @Pattern(regexp = "^[6789][0-9]{9}$")
+//    @Pattern(regexp = "^[6789][0-9]{9}$")
     private String mobileNum;
     @NotNull(message = "Email should not be null")
     private String email;
@@ -30,9 +30,9 @@ public class MentorDTO {
     private String experienceYear;
     @NotNull(message = "Preferred Time should not be null")
     private String preferredTime;
-    @NotNull(message = "Start date Should not be null")
+//    @NotNull(message = "Start date Should not be null")
     private LocalDate startDate;
-    @NotNull(message = "Status should not be null")
+//    @NotNull(message = "Status should not be null")
     private String status;
     private String mentorDescription;
     private String profileImageUrl;
