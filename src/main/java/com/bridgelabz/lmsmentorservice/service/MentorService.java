@@ -30,7 +30,6 @@ public class MentorService implements IMentorService{
         boolean isUserPresent = restTemplate.getForObject("http://localhost:8082/admin/validate/" + token, Boolean.class);
         if (isUserPresent) {
             MentorModel mentorModel = new MentorModel(mentorDTO);
-            Long mentorId = tokenUtil.decodeToken(token);
             mentorModel.setCreatedTimeStamp(LocalDateTime.now());
             mentorRepository.save(mentorModel);
             String body = "Mentor added Successfully with id  :" + mentorModel.getId();
@@ -49,7 +48,7 @@ public class MentorService implements IMentorService{
 
     @Override
     public Response getAllMentorData(String token) {
-        boolean isUserPresent = restTemplate.getForObject("http://localhost:8080/admin/validate/" + token, Boolean.class);
+        boolean isUserPresent = restTemplate.getForObject("http://localhost:8082/admin/validate/" + token, Boolean.class);
         if (isUserPresent) {
             Long mentorId = tokenUtil.decodeToken(token);
             Optional<MentorModel> isMentorPresent = mentorRepository.findById(mentorId);
@@ -66,7 +65,7 @@ public class MentorService implements IMentorService{
 
     @Override
    public Response updateMentor(long id, MentorDTO mentorDTO, String token) {
-        boolean isUserPresent = restTemplate.getForObject("http://localhost:8080/admin/validate/" + token, Boolean.class);
+        boolean isUserPresent = restTemplate.getForObject("http://localhost:8082/admin/validate/" + token, Boolean.class);
         if (isUserPresent) {
             Long mentorId = tokenUtil.decodeToken(token);
             Optional<MentorModel> isMentorPresent = mentorRepository.findById(mentorId);
@@ -98,7 +97,7 @@ public class MentorService implements IMentorService{
 
     @Override
    public Response deleteMentor(Long id, String token) {
-        boolean isUserPresent = restTemplate.getForObject("http://localhost:8080/admin/validate/" + token, Boolean.class);
+        boolean isUserPresent = restTemplate.getForObject("http://localhost:8082/admin/validate/" + token, Boolean.class);
         if (isUserPresent) {
             Long mentorId = tokenUtil.decodeToken(token);
             Optional<MentorModel> isMentorPresent = mentorRepository.findById(mentorId);
